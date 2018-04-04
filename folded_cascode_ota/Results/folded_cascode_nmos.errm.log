@@ -1,0 +1,15 @@
+START report: Wed Apr  4 12:37:43 2018 
+** Error: (eldo-920)  In file "./folded_cascode_nmos.cir" line 8:
++   Unable to parse expression WM6 =. 
+** Error: (eldo-920)  In file "./folded_cascode_nmos.cir" line 9:
++   Unable to parse expression LM6 =. 
+** Error: (eldo-920)  In file "./folded_cascode_nmos.cir" line 11:
++   Unable to parse expression W5 =. 
+** Error: (eldo-920)  In file "./folded_cascode_nmos.cir" line 12:
++   Unable to parse expression L5 =. 
+** Error: (eldo-920)  In file "./folded_cascode_nmos.cir" line 15:
++   Unable to parse expression L4 =. 
+** Error: (eldo-920)  In file "./folded_cascode_nmos.cir" line 17:
++   Unable to parse expression W3 =. 
+** Error: (eldo-920)  In file "./folded_cascode_nmos.cir" line 18:
++   Unable to parse expression L3 =. 

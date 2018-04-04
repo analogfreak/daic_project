@@ -1,0 +1,32 @@
+* Design of PMOS load current sources
+* W=135u L=90nm
+* Over drive required= 139m
+**************
+* Model file *
+.lib "../../../models/45nm.lib" tt
+**************
+.param width_diode=38.69u
+.param rvalue=38.46
+.param length_diode=45n
+.param width=50u
+Vdd vdd gnd 1.1
+vgnd gnd 0 0
+
+I_bias vdd drain 2.6m
+X_nmos drain drain rnode rnode nmos w=width_diode L=length_diode
+Rload  rnode gnd rvalue 
+
+
+I_bias_2 vdd drain_2 2.6m
+X_nmos_2 drain_2 drain source source nmos w=width_diode L=length_diode
+X_nmos_3 source drain gnd gnd nmos w=width L=180n
+
+.op
+.dc sweep  width 70u 120u 1u
+.probe I V
+.defwave VGS_VTH_laod=VDSAT(X_nmos_3.M1)
+.defwave width_mos = width
+.plot dc w(VGS_VTH_laod)
+
+.meas dc width_needed find w(width_mos) when VDSAT(X_nmos_3.M1)=100m
+.end

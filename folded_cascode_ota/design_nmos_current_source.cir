@@ -1,0 +1,55 @@
+* Design of PMOS load current sources
+* W=135u L=90nm
+* Over drive required= 139m
+**************
+* Model file *
+.lib "../../../models/45nm.lib" tt
+**************
+.param width_diode=38.69u
+.param rvalue=45
+.param length_diode=45n
+.param width_curr=150u
+.param width_cascode=38.69u
+Vdd vdd gnd 1.1
+vgnd gnd 0 0
+
+I_bias vdd drain 2.6m
+X_nmos drain drain rnode gnd nmos w=width_diode L=length_diode
+Rload  rnode gnd rvalue 
+
+
+I_bias_2 vdd drain_2 2.6m
+X_nmos_2 drain_2 drain source gnd nmos w=width_cascode L=length_diode
+X_nmos_3 source drain_2 gnd gnd nmos w=width_curr L=180n
+
+.op
+.dc sweep width_cascode 5u 800u 1u
+.probe I V
+.defwave VGS_VTH_source=VDSAT(X_nmos_3.M1)
+.defwave VGS_VTH_cascode=VDSAT(X_nmos_2.M1)
+.defwave VGS_VTH_diode=VDSAT(X_nmos.M1)
+*.defwave width_mos = width
+.plot dc w(VGS_VTH_cascode)
+.plot dc w(VGS_VTH_source)
+.plot dc w(VGS_VTH_diode)
+
+
+.defwave VDS_source=VDS(X_nmos_3.M1)
+.defwave VDS_cascode=VDS(X_nmos_2.M1)
+.defwave VDS_diode=VDS(X_nmos.M1)
+.plot dc w(VDS_cascode)
+.plot dc w(VDS_source)
+.plot dc w(VDS_diode)
+.defwave ro=(1/GDS(X_nmos_2.M1))*(GM(X_nmos_2.M1))*(1/GDS(X_nmos_3.M1))
+.defwave gm_cascode=GM(X_nmos_2.M1)
+.plot dc w(ro)
+.plot dc w(gm_cascode)
+
+.defwave rds_cascode=1/GDS(X_nmos_2.M1)
+.plot dc w(rds_cascode)
+
+.defwave rds_curr=1/GDS(X_nmos_3.M1)
+.plot dc w(rds_curr)
+
+*.meas dc width_needed find w(width_mos) when VDSAT(X_nmos_3.M1)=100m
+.end

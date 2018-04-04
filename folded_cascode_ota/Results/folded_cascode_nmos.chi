@@ -1,0 +1,106 @@
+  Run on pc-klas4-12.esat.kuleuven.be (Linux 3.10.0-693.21.1.el7.x86_64)
+
+
+***** SYSTEM INFORMATION ...
+
+*** User  : r0689733
+*** OS    : \S [VCO = aol]
+*** CPU   :
+    Intel(R) Core(TM) i5-3450 CPU @ 3.10GHz
+    Number of physical processors     : 1
+    Hyper-Threading Technology        : disabled
+    Number of cpu cores               : 4
+    Number of logical processors      : 4
+*** Freq  : 3397.285MHz
+*** Cache : 6144 KB
+*** MEM   : 7909512 kB
+*** Date  : Wed Apr  4 12:37:43 2018
+
+*** Eldo VERSION : ELDO 17.1 (64 bits) Thu Feb 23 16:45:37 GMT 2017
+
+/esat/micas-data/software/ams_2017.1/aol/bin/eldo_64.exe -i folded_cascode_nmos.cir -outpath Results/
+
+
+***** PRE-PROCESSING ...
+1******* 4-Apr-18 *******  ELDO 17.1 (64 bits)  (v8.4_1.1)  *******12:37:43******
+
+0*Simple n-input OTA
+
+0****     INPUT LISTING                                               
+
+0***********************************************************************
+    2  
+    3  * The tail current source has been designed using the file
+    4  * design_tail_current.cir
+    5  .PARAM WTAIL_CURRRENT = 135U
+    6  .PARAM LTAIL_CURRENT =  180N
+    7  
+    8  .PARAM WM6 = 
+ERROR 920: In file "./folded_cascode_nmos.cir" line 8:
++   Unable to parse expression WM6 =. 
+    9  .PARAM LM6 = 
+   10  
+ERROR 920: In file "./folded_cascode_nmos.cir" line 9:
++   Unable to parse expression LM6 =. 
+   11  .PARAM W5 =
+ERROR 920: In file "./folded_cascode_nmos.cir" line 11:
++   Unable to parse expression W5 =. 
+   12  .PARAM L5 =
+   13  
+   14  
+ERROR 920: In file "./folded_cascode_nmos.cir" line 12:
++   Unable to parse expression L5 =. 
+   15  .PARAM L4 =
+   16  
+ERROR 920: In file "./folded_cascode_nmos.cir" line 15:
++   Unable to parse expression L4 =. 
+   17  .PARAM W3 = 
+ERROR 920: In file "./folded_cascode_nmos.cir" line 17:
++   Unable to parse expression W3 =. 
+   18  .PARAM L3 = 
+   19  
+ERROR 920: In file "./folded_cascode_nmos.cir" line 18:
++   Unable to parse expression L3 =. 
+   20  .SUBCKT FOLDED_CASCODE_NMOS NDD NSS INP_P INP_N POUT NOUT B5 B4 B3 B2 NBIAS1
+   21  
+   22  X_M6A OUT_P B5 NDD NDD PMOS W=WM6 L=LM6
+   42  .ENDS FOLDED_CASCODE_NMOS
+   43  .END
+
+End of file 
+
+
+***** 7  error(s). 
+***** 0  warning(s). 
+
+
+***** GENERATION ...
+
+
+***** 7  error(s). 
+***** 0  warning(s). 
+
+
+INFORMATION ABOUT COMPILATION 
+
+Peak memory usage (MB): 34
+Virtual memory usage (MB): 376
+0 elements
+0 nodes 
+0 input signals
+
+Check your input netlist...
+
+***>MESSAGE SUMMARY: 7 errors
+
+***>GLOBAL CPU TIME 0s 020ms <***
+
+
+***>GLOBAL ELAPSED TIME 1s <***
+
+
+  Job started at  4-Apr-2018 12:37:42
+  Job end at      4-Apr-2018 12:37:43
+
+  Run on pc-klas4-12.esat.kuleuven.be (Linux 3.10.0-693.21.1.el7.x86_64)
+

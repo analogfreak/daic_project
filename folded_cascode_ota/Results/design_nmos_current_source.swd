@@ -1,0 +1,76 @@
+//###########################################################
+//# ELDO 17.1 (64 bits) - Saved Window File
+//# Released Thu Feb 23 16:45:37 GMT 2017
+//#
+//# Note: This is an auto-generated file.
+//#
+//# Any edits that you make may cause the restore of
+//# this window to fail - EDIT AT YOUR OWN RISK
+//###########################################################
+
+
+// ===== Open new window =====
+OPEn WIndow -POSition 0 0 -MAXimized
+
+// ===== Create row #1 =====
+ADD WAveform  <design_nmos_current_source/DC>W(VGS_VTH_CASCODE) 
+
+// ===== Set axis zero levels  =====
+SET AXis Properties -Axis Y1 -Row 1 -zerolevel on
+
+// ===== Create row #2 =====
+ADD WAveform  <design_nmos_current_source/DC>W(VGS_VTH_SOURCE) 
+
+// ===== Set axis zero levels  =====
+SET AXis Properties -Axis Y1 -Row 2 -zerolevel on
+
+// ===== Create row #3 =====
+ADD WAveform  <design_nmos_current_source/DC>W(VGS_VTH_DIODE) 
+
+// ===== Set axis zero levels  =====
+SET AXis Properties -Axis Y1 -Row 3 -zerolevel on
+
+// ===== Create row #4 =====
+ADD WAveform  <design_nmos_current_source/DC>W(VDS_CASCODE) 
+
+// ===== Set axis zero levels  =====
+SET AXis Properties -Axis Y1 -Row 4 -zerolevel on
+
+// ===== Create row #5 =====
+ADD WAveform  <design_nmos_current_source/DC>W(VDS_SOURCE) 
+
+// ===== Set axis zero levels  =====
+SET AXis Properties -Axis Y1 -Row 5 -zerolevel on
+
+// ===== Create row #6 =====
+ADD WAveform  <design_nmos_current_source/DC>W(VDS_DIODE) 
+
+// ===== Set axis zero levels  =====
+SET AXis Properties -Axis Y1 -Row 6 -zerolevel on
+
+// ===== Create row #7 =====
+ADD WAveform  <design_nmos_current_source/DC>W(RO) 
+
+// ===== Set axis zero levels  =====
+SET AXis Properties -Axis Y1 -Row 7 -zerolevel on
+
+// ===== Create row #8 =====
+ADD WAveform  <design_nmos_current_source/DC>W(GM_CASCODE) 
+
+// ===== Set axis zero levels  =====
+SET AXis Properties -Axis Y1 -Row 8 -zerolevel on
+
+// ===== Create row #9 =====
+ADD WAveform  <design_nmos_current_source/DC>W(RDS_CASCODE) 
+
+// ===== Set axis zero levels  =====
+SET AXis Properties -Axis Y1 -Row 9 -zerolevel on
+
+// ===== Create row #10 =====
+ADD WAveform  <design_nmos_current_source/DC>W(RDS_CURR) 
+
+// ===== Set axis zero levels  =====
+SET AXis Properties -Axis Y1 -Row 10 -zerolevel on
+
+// ===== Format rows =====
+SET ROw Height -All -MAX
