@@ -1,0 +1,9 @@
+
+.param Wb = 
+.param Lb = 
+
+.subckt bias_pmos nbias nss
+
+XM1 nbias nbias ndd ndd pmos w=Wb l=Lb
+
+.ends bias_pmos

@@ -1,0 +1,36 @@
+**************
+* Parameters *
+**************
+
+.param Iin = 
+
+.param Cs=
+.param Cx1=
+.param Cx2=
+.param Cx3=
+.param Cl=
+
+.param Clopen=
+
+.param Vdcin=
+.param Vdcout=
+
+.param Vdm=
+
+.param WCS=
+.param LCS=
+
+.param Wn=
+.param Ln=
+.param Wp=
+.param Lp=
+
+.param fclock=
+.param Tclk=1/fclock
+
+.param fsig_test=fclock/16
+
+.param f_fbloop=fsig_test/5
+
+.param Vlow=0.56
+.param Vhigh=0.615

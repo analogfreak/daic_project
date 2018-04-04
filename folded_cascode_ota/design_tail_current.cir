@@ -1,0 +1,26 @@
+* Design of the tail current source
+* design completed.
+* With the values of width and length, the value of current from
+* the mirror is 4.4085E-03
+* w= 135u
+* L= 180n
+* bias current: 2.5873E-03*2= 5.1746m
+
+**************
+* Model file *
+**************
+.lib "../../models/45nm.lib" tt
+
+.param bias_current = 5.1746m
+
+
+Vdd vdd gnd 1.1
+vgnd gnd 0 0
+I_bias vdd nbias bias_current
+X_ndiode nbias nbias gnd gnd nmos w=135u L=180n
+X_tailCurrent out nbias gnd gnd nmos w=135u L=180n
+vds out gnd 200m
+.op
+.dc
+.end
+

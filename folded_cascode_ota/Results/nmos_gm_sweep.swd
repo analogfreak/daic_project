@@ -1,0 +1,58 @@
+//###########################################################
+//# ELDO 13.1 patch1 (64 bits) - Saved Window File
+//# Released Tue Jul  9 16:07:51 GMT 2013
+//#
+//# Note: This is an auto-generated file.
+//#
+//# Any edits that you make may cause the restore of
+//# this window to fail - EDIT AT YOUR OWN RISK
+//###########################################################
+
+
+// ===== Open new window =====
+OPEn WIndow -POSition 0 0 -MAXimized
+
+// ===== Create row #1 =====
+ADD WAveform  <nmos_gm_sweep/DC>W(IDS) 
+
+// ===== Set axis zero levels  =====
+SET AXis Properties -Axis Y1 -Row 1 -zerolevel on
+
+// ===== Create row #2 =====
+ADD WAveform  <nmos_gm_sweep/DC>W(GM) 
+
+// ===== Set axis zero levels  =====
+SET AXis Properties -Axis Y1 -Row 2 -zerolevel on
+
+// ===== Create row #3 =====
+ADD WAveform  <nmos_gm_sweep/DC>W(GM_OVER_IDS) 
+
+// ===== Set axis zero levels  =====
+SET AXis Properties -Axis Y1 -Row 3 -zerolevel on
+
+// ===== Create row #4 =====
+ADD WAveform  <nmos_gm_sweep/DC>W(RDS) 
+
+// ===== Set axis zero levels  =====
+SET AXis Properties -Axis Y1 -Row 4 -zerolevel on
+
+// ===== Create row #5 =====
+ADD WAveform  <nmos_gm_sweep/DC>W(VGS_VTH) 
+
+// ===== Set axis zero levels  =====
+SET AXis Properties -Axis Y1 -Row 5 -zerolevel on
+
+// ===== Create row #6 =====
+ADD WAveform  <nmos_gm_sweep/DC>W(VDSAT) 
+
+// ===== Set axis zero levels  =====
+SET AXis Properties -Axis Y1 -Row 6 -zerolevel on
+
+// ===== Create row #7 =====
+ADD WAveform  <nmos_gm_sweep/DC>W(FT) 
+
+// ===== Set axis zero levels  =====
+SET AXis Properties -Axis Y1 -Row 7 -zerolevel on
+
+// ===== Format rows =====
+SET ROw Height -All -MAX

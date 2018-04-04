@@ -1,0 +1,35 @@
+*Ideal common mode feedback circuit
+* If there is nothing more shitty, you write netlists like this
+
+.subckt cmfb noutp noutn ncmfb_shift nss
+
+**************
+* Parameters *
+**************
+
+* Desired output common mode voltage
+.param Vout_cm = 
+
+* This is the voltage that is the nominal value of the CMFB 
+* If your output common mode is exactly equal to Vout_cm,
+* then this would be the output voltage
+
+.param Vbias_out = 
+
+.param R0 = 
+.param A0 = 
+
+***********
+* Circuit *
+***********
+E1 ncn nref VCVS noutn nref A0
+R1 ncn ncmfb R0
+
+E2 ncp nref VCVS noutp nref A0
+R2 ncp ncmfb R0
+
+Vref nref nss Vout_cm
+
+Vshift ncmfb ncmfb_shift -Vbias_out
+
+.ends cmfb

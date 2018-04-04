@@ -1,0 +1,21 @@
+*Differential Simple OTA
+
+.param W0 = 
+.param L0 = 
+.param W1 = 
+.param L1 = 
+.param W2 = 
+.param L2 = 
+
+
+.subckt simple_pmos ninp ninn noutp noutn nbias1 nbias2 nbias3 nbias4 nbias5 ndd nss
+
+XM0 nx nbias1 ndd ndd pmos w=W0 l=L0
+
+XM1a noutp ninn nx ndd pmos w=W1 l=L1
+XM1b noutn ninp nx ndd pmos w=W1 l=L1
+
+XM2a noutp nbias2 nss nss nmos w=W2 l=L2
+XM2b noutn nbias2 nss nss nmos w=W2 l=L2
+
+.ends simple_pmos

@@ -1,0 +1,63 @@
+*A test structure for the OTA 
+
+**************
+* Model file *
+**************
+.lib "../../models/45nm.lib" tt
+
+*****************
+* Include files *
+*****************
+.include './.cir'
+.include './folded_cascode_nmos.cir'
+.include './cmfb.cir'
+.include './parameters.cir'
+
+***********
+* Options *
+***********
+*.option method=gear
+*.option reltol=1e-5 abstol=1e-9
+
+***********
+* Circuit *
+***********
+Xota ndd nss inp_p inp_n pout nout b5 b4 b3 b2 nbias1 folded_cascode_nmos
+Xbias nbias1 nss bias_nmos Wb=WCS Lb=LCS
+Xcmfb noutp noutn ncmfb nss Vref=Vdcout
+
+Cla noutn nss Clopen
+Clb noutp nss Clopen
+
+***********
+* Sources *
+***********
+* DC sources
+Vdd ndd 0 1
+Vss nss 0 0
+Iin nss nbias1 Iin
+
+* AC sources
+Vinp ninp nss dc (Vdcin+Vdm/2) ac 1
+Vinn ninn nss dc (Vdcin-Vdm/2) ac -1
+ 
+***************
+* Simulations *
+***************
+* Operating point
+.op
+
+* AC analysis
+.ac dec 100 1e0 1e12
+
+* Transient analysis
+*.tran 1e-9 1e-4
+
+*.DC sweep Vdm -1 1 0.05
+
+**********
+* Output *
+**********
+.probe I V 
+
+.end

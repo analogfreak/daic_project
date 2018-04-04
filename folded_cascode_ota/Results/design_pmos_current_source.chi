@@ -1,0 +1,621 @@
+  Run on stud-c7-19.esat.kuleuven.be (Linux 3.10.0-693.21.1.el7.x86_64)
+
+
+***** SYSTEM INFORMATION ...
+
+*** User  : r0685932@stud-c7-19.esat.kuleuven.be
+*** OS    : \S [VCO = aol]
+*** CPU   :
+    Intel Core Processor (Haswell, no TSX, IBRS)
+    Number of physical processors     : 2
+    Hyper-Threading Technology        : disabled
+    Number of cpu cores               : 4
+    Number of logical processors      : 4
+*** Freq  : 2599.996MHz
+*** Cache : 4096 KB
+*** MEM   : 8006164 kB
+*** Date  : Fri Mar 30 18:32:19 2018
+
+/esat/micas-data/software/ams_2013.1/aol/bin/eldo_64.exe -i design_pmos_current_source.cir -outpath Results/ 
+
+
+***** PRE-PROCESSING ...
+
+1*******30-Mar-18 *******  ELDO 13.1 patch1 (64 bits)  (v7.9_1.1)  *******18:32:19******
+
+0* Design of PMOS load current sources
+
+0****     INPUT LISTING                                               
+
+0***********************************************************************
+    2  * W=135u L=90nm
+    3  * Over drive required= 139m
+    4  **************
+    5  * Model file *
+    6  .LIB  ../../models/45nm.lib  tt
+    7  **************
+    8  ** INCLUDING LIBRARY /users/students/r0685932/DAIC/models/45nm.lib LIBTYPE=tt
+    1  ** including /users/students/r0685932/DAIC/models/45nm.pm
+    1  * PTM High Performance 45nm Metal Gate / High-K / Strained-Si
+    2  * nominal Vdd = 1.0V
+    3  
+    4  .MODEL  N_MOS  NMOS  LEVEL = 60
+    5  
+    6  +VERSION = 4.0             BINUNIT = 1               PARAMCHK= 1               MOBMOD  = 0             
+    7  +CAPMOD  = 2               IGCMOD  = 1               IGBMOD  = 1               GEOMOD  = 1             
+    8  +DIOMOD  = 1               RDSMOD  = 0               RBODYMOD= 1               RGATEMOD= 1             
+    9  +PERMOD  = 1               ACNQSMOD= 0               TRNQSMOD= 0             
+   10  
+   11  +TNOM    = 27              TOXE    = 1.25E-009       TOXP    = 1E-009          TOXM    = 1.25E-009     
+   12  +DTOX    = 2.5E-010        EPSROX  = 3.9             WINT    = 5E-009          LINT    = 3.75E-009     
+   13  +LL      = 0               WL      = 0               LLN     = 1               WLN     = 1             
+   14  +LW      = 0               WW      = 0               LWN     = 1               WWN     = 1             
+   15  +LWL     = 0               WWL     = 0               XPART   = 0               TOXREF  = 1.25E-009     
+   16  +XL	   = -20E-9
+   17  
+   18  +VTH0    = 0.46893         K1      = 0.4             K2      = 0               K3      = 0             
+   19  +K3B     = 0               W0      = 2.5E-006        DVT0    = 1               DVT1    = 2             
+   20  +DVT2    = 0               DVT0W   = 0               DVT1W   = 0               DVT2W   = 0             
+   21  +DSUB    = 0.1             MINV    = 0.05            VOFFL   = 0               DVTP0   = 1E-010        
+   22  +DVTP1   = 0.1             LPE0    = 0               LPEB    = 0               XJ      = 1.4E-008      
+   23  +NGATE   = 1E+023          NDEP    = 3.24E+018       NSD     = 2E+020          PHIN    = 0             
+   24  +CDSC    = 0               CDSCB   = 0               CDSCD   = 0               CIT     = 0             
+   25  +VOFF    = -0.13           NFACTOR = 2.22            ETA0    = 0.0055          ETAB    = 0             
+   26  +VFB     = -0.55           U0      = 0.054           UA      = 6E-010          UB      = 1.2E-018      
+   27  +UC      = 0               VSAT    = 170000          A0      = 1               AGS     = 0             
+   28  +A1      = 0               A2      = 1               B0      = 0               B1      = 0             
+   29  +KETA    = 0.04            DWG     = 0               DWB     = 0               PCLM    = 0.02          
+   30  +PDIBLC1 = 0.001           PDIBLC2 = 0.001           PDIBLCB = -0.005          DROUT   = 0.5           
+   31  +PVAG    = 1E-020          DELTA   = 0.01            PSCBE1  = 8.14E+008       PSCBE2  = 1E-007        
+   32  +FPROUT  = 0.2             PDITS   = 0.08            PDITSD  = 0.23            PDITSL  = 2300000       
+   33  +RSH     = 5               RDSW    = 155             RSW     = 80              RDW     = 80            
+   34  +RDSWMIN = 0               RDWMIN  = 0               RSWMIN  = 0               PRWG    = 0             
+   35  +PRWB    = 0               WR      = 1               ALPHA0  = 0.074           ALPHA1  = 0.005         
+   36  +BETA0   = 30              AGIDL   = 0.0002          BGIDL   = 2.1E+009        CGIDL   = 0.0002        
+   37  +EGIDL   = 0.8             AIGBACC = 0.012           BIGBACC = 0.0028          CIGBACC = 0.002         
+   38  +NIGBACC = 1               AIGBINV = 0.014           BIGBINV = 0.004           CIGBINV = 0.004         
+   39  +EIGBINV = 1.1             NIGBINV = 3               AIGC    = 0.02            BIGC    = 0.0025        
+   40  +CIGC    = 0.002           AIGSD   = 0.02            BIGSD   = 0.0025          CIGSD   = 0.002         
+   41  +NIGC    = 1               POXEDGE = 1               PIGCD   = 1               NTOX    = 1             
+   42  +XRCRG1  = 12              XRCRG2  = 5             
+   43  
+   44  +CGSO    = 1.1E-010        CGDO    = 1.1E-010        CGBO    = 2.56E-011       CGDL    = 2.653E-010    
+   45  +CGSL    = 2.653E-010      CKAPPAS = 0.03            CKAPPAD = 0.03            ACDE    = 1             
+   46  +MOIN    = 15              NOFF    = 0.9             VOFFCV  = 0.02          
+   47  
+   48  +KT1     = -0.11           KT1L    = 0               KT2     = 0.022           UTE     = -1.5          
+   49  +UA1     = 4.31E-009       UB1     = 7.61E-018       UC1     = -5.6E-011       PRT     = 0             
+   50  +AT      = 33000         
+   51  
+   52  +FNOIMOD = 1               TNOIMOD = 0             
+   53  
+   54  +JSS     = 0.0001          JSWS    = 1E-011          JSWGS   = 1E-010          NJS     = 1             
+   55  +IJTHSFWD= 0.01            IJTHSREV= 0.001           BVS     = 10              XJBVS   = 1             
+   56  +JSD     = 0.0001          JSWD    = 1E-011          JSWGD   = 1E-010          NJD     = 1             
+   57  +IJTHDFWD= 0.01            IJTHDREV= 0.001           BVD     = 10              XJBVD   = 1             
+   58  +PBS     = 1               CJS     = 0.0005          MJS     = 0.5             PBSWS   = 1             
+   59  +CJSWS   = 5E-010          MJSWS   = 0.33            PBSWGS  = 1               CJSWGS  = 3E-010        
+   60  +MJSWGS  = 0.33            PBD     = 1               CJD     = 0.0005          MJD     = 0.5           
+   61  +PBSWD   = 1               CJSWD   = 5E-010          MJSWD   = 0.33            PBSWGD  = 1             
+   62  +CJSWGD  = 5E-010          MJSWGD  = 0.33            TPB     = 0.005           TCJ     = 0.001         
+   63  +TPBSW   = 0.005           TCJSW   = 0.001           TPBSWG  = 0.005           TCJSWG  = 0.001         
+   64  +XTIS    = 3               XTID    = 3             
+   65  
+   66  +DMCG    = 0               DMCI    = 0               DMDG    = 0               DMCGT   = 0             
+   67  +DWJ     = 0               XGW     = 0               XGL     = 0             
+   68  
+   69  +RSHG    = 0.4             GBMIN   = 1E-010          RBPB    = 5               RBPD    = 15            
+   70  +RBPS    = 15              RBDB    = 15              RBSB    = 15              NGCON   = 1             
+   71  
+   72  
+   73  
+   74  .MODEL  P_MOS  PMOS  LEVEL = 60
+   75  
+   76  +VERSION = 4.0             BINUNIT = 1               PARAMCHK= 1               MOBMOD  = 0             
+   77  +CAPMOD  = 2               IGCMOD  = 1               IGBMOD  = 1               GEOMOD  = 1             
+   78  +DIOMOD  = 1               RDSMOD  = 0               RBODYMOD= 1               RGATEMOD= 1             
+   79  +PERMOD  = 1               ACNQSMOD= 0               TRNQSMOD= 0             
+   80  
+   81  +TNOM    = 27              TOXE    = 1.3E-009        TOXP    = 1E-009          TOXM    = 1.3E-009      
+   82  +DTOX    = 3E-010          EPSROX  = 3.9             WINT    = 5E-009          LINT    = 3.75E-009     
+   83  +LL      = 0               WL      = 0               LLN     = 1               WLN     = 1             
+   84  +LW      = 0               WW      = 0               LWN     = 1               WWN     = 1             
+   85  +LWL     = 0               WWL     = 0               XPART   = 0               TOXREF  = 1.3E-009      
+   86  +XL	   = -20E-9
+   87  
+   88  +VTH0    = -0.49158        K1      = 0.4             K2      = -0.01           K3      = 0             
+   89  +K3B     = 0               W0      = 2.5E-006        DVT0    = 1               DVT1    = 2             
+   90  +DVT2    = -0.032          DVT0W   = 0               DVT1W   = 0               DVT2W   = 0             
+   91  +DSUB    = 0.1             MINV    = 0.05            VOFFL   = 0               DVTP0   = 1E-011        
+   92  +DVTP1   = 0.05            LPE0    = 0               LPEB    = 0               XJ      = 1.4E-008      
+   93  +NGATE   = 1E+023          NDEP    = 2.44E+018       NSD     = 2E+020          PHIN    = 0             
+   94  +CDSC    = 0               CDSCB   = 0               CDSCD   = 0               CIT     = 0             
+   95  +VOFF    = -0.126          NFACTOR = 2.1             ETA0    = 0.0055          ETAB    = 0             
+   96  +VFB     = 0.55            U0      = 0.02            UA      = 2E-009          UB      = 5E-019        
+   97  +UC      = 0               VSAT    = 150000          A0      = 1               AGS     = 1E-020        
+   98  +A1      = 0               A2      = 1               B0      = 0               B1      = 0             
+   99  +KETA    = -0.047          DWG     = 0               DWB     = 0               PCLM    = 0.12          
+  100  +PDIBLC1 = 0.001           PDIBLC2 = 0.001           PDIBLCB = 3.4E-008        DROUT   = 0.56          
+  101  +PVAG    = 1E-020          DELTA   = 0.01            PSCBE1  = 8.14E+008       PSCBE2  = 9.58E-007     
+  102  +FPROUT  = 0.2             PDITS   = 0.08            PDITSD  = 0.23            PDITSL  = 2300000       
+  103  +RSH     = 5               RDSW    = 155             RSW     = 75              RDW     = 75            
+  104  +RDSWMIN = 0               RDWMIN  = 0               RSWMIN  = 0               PRWG    = 0             
+  105  +PRWB    = 0               WR      = 1               ALPHA0  = 0.074           ALPHA1  = 0.005         
+  106  +BETA0   = 30              AGIDL   = 0.0002          BGIDL   = 2.1E+009        CGIDL   = 0.0002        
+  107  +EGIDL   = 0.8             AIGBACC = 0.012           BIGBACC = 0.0028          CIGBACC = 0.002         
+  108  +NIGBACC = 1               AIGBINV = 0.014           BIGBINV = 0.004           CIGBINV = 0.004         
+  109  +EIGBINV = 1.1             NIGBINV = 3               AIGC    = 0.010687        BIGC    = 0.0012607     
+  110  +CIGC    = 0.0008          AIGSD   = 0.010687        BIGSD   = 0.0012607       CIGSD   = 0.0008        
+  111  +NIGC    = 1               POXEDGE = 1               PIGCD   = 1               NTOX    = 1             
+  112  +XRCRG1  = 12              XRCRG2  = 5             
+  113  
+  114  +CGSO    = 1.1E-010        CGDO    = 1.1E-010        CGBO    = 2.56E-011       CGDL    = 2.653E-010    
+  115  +CGSL    = 2.653E-010      CKAPPAS = 0.03            CKAPPAD = 0.03            ACDE    = 1             
+  116  +MOIN    = 15              NOFF    = 0.9             VOFFCV  = 0.02          
+  117  
+  118  +KT1     = -0.11           KT1L    = 0               KT2     = 0.022           UTE     = -1.5          
+  119  +UA1     = 4.31E-009       UB1     = 7.61E-018       UC1     = -5.6E-011       PRT     = 0             
+  120  +AT      = 33000         
+  121  
+  122  +FNOIMOD = 1               TNOIMOD = 0             
+  123  
+  124  +JSS     = 0.0001          JSWS    = 1E-011          JSWGS   = 1E-010          NJS     = 1             
+  125  +IJTHSFWD= 0.01            IJTHSREV= 0.001           BVS     = 10              XJBVS   = 1             
+  126  +JSD     = 0.0001          JSWD    = 1E-011          JSWGD   = 1E-010          NJD     = 1             
+  127  +IJTHDFWD= 0.01            IJTHDREV= 0.001           BVD     = 10              XJBVD   = 1             
+  128  +PBS     = 1               CJS     = 0.0005          MJS     = 0.5             PBSWS   = 1             
+  129  +CJSWS   = 5E-010          MJSWS   = 0.33            PBSWGS  = 1               CJSWGS  = 3E-010        
+  130  +MJSWGS  = 0.33            PBD     = 1               CJD     = 0.0005          MJD     = 0.5           
+  131  +PBSWD   = 1               CJSWD   = 5E-010          MJSWD   = 0.33            PBSWGD  = 1             
+  132  +CJSWGD  = 5E-010          MJSWGD  = 0.33            TPB     = 0.005           TCJ     = 0.001         
+  133  +TPBSW   = 0.005           TCJSW   = 0.001           TPBSWG  = 0.005           TCJSWG  = 0.001         
+  134  +XTIS    = 3               XTID    = 3             
+  135  
+  136  +DMCG    = 0               DMCI    = 0               DMDG    = 0               DMCGT   = 0             
+  137  +DWJ     = 0               XGW     = 0               XGL     = 0             
+  138  
+  139  +RSHG    = 0.4             GBMIN   = 1E-010          RBPB    = 5               RBPD    = 15            
+  140  +RBPS    = 15              RBDB    = 15              RBSB    = 15              NGCON   = 1             
+  141  
+  142  
+  143  
+    1  
+    2  
+    3  .SUBCKT NMOS D G S B MULT='1' W='100E-9' L='45E-9'
+    4  M1 D G S B N_MOS W=W L=L M='MULT'
+    5  .ENDS
+    6  
+    7  
+    8  .SUBCKT PMOS D G S B MULT='1' W='2100E-9' L='45E-9'
+    9  M1 D G S B P_MOS W=W L=L  M='MULT'
+   10  .ENDS
+   11  
+    8  ** END OF LIBRARY /users/students/r0685932/DAIC/models/45nm.pm LIBTYPE=tt
+    8  .PARAM WIDTH=500U
+    9  
+   10  Vdd vdd gnd 1.1
+   11  vgnd gnd 0 0
+   12  I_bias pbias gnd 2.3m
+   13  X_PDIODE PBIAS PBIAS VDD VDD PMOS W=139U L=90N
+   14  X_PMOSLOADPAIR OUT PBIAS VDD VDD PMOS W=139U L=90N
+   15  vds out gnd 900m
+   16  .OP
+   17  .DC sweep width 80u 150u 1u
+   18  .PROBE I V
+   19  .DEFWAVE VGS_VTH_LAOD=VDSAT(X_PMOSLOADPAIR.M1)
+   20  .PLOT DC W(VGS_VTH_LAOD)
+   21  .END
+End of file 
+
+
+***** 0  error(s). 
+***** 0  warning(s). 
+
+
+***** GENERATION ...
+
+
+***** 0  error(s). 
+***** 0  warning(s). 
+
+
+INFORMATION ABOUT COMPILATION 
+
+
+Memory space allocated (MB):    250
+6 elements
+4 nodes 
+3 input signals
+Detail about objects and nodes found in the design, and simulated by Eldo:
+Number of nodes                     4
+Number of intrinsic nodes           0
+Number of input signals             3
+Number of resistors                 0
+Number of floating capacitors       0
+Number of grounded capacitors       0
+Number of inductors                 0
+Number of voltage sources           3
+Number of current sources           1
+Number of dependent sources         0
+Number of diodes                    0
+Number of BJT                       0
+Number of JFET                      0
+Number of MOS                       2
+Number of SWITCHES                  0
+Number of transmission lines        0
+Total number of elements simulated  6
+
+Eldo VERSION : ELDO 13.1 patch1 (64 bits) Tue Jul  9 16:07:51 GMT 2013
+
+*** DATE: 30-Mar-2018 18:32:19
+
+*** TITLE: * Design of PMOS load current sources
+
+TEMPERATURE : 27.000000 degrees C
+
+Warning 526: MODEL "N_MOS":  Parameter XL used for version >= 4.2. Parameter ignored! 
+Warning 526: MODEL "N_MOS":   ACDE = 1 given in the model card results in effective acde = 0.280299 which is too small.
+
+Warning 526: MODEL "P_MOS":  Parameter XL used for version >= 4.2. Parameter ignored! 
+Warning 526: MODEL "P_MOS":   ACDE = 1 given in the model card results in effective acde = 0.300892 which is too small.
+
+1***************30-Mar-2018 ***********************  ELDO 13.1 patch1 (64 bits)  (v7.9_1.1)  ***********************18:32:19*****************
+
+0* Design of PMOS load current sources
+0****                 MODELS PARAMETERS                                    TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+
+ DEVICE          MOS
+ MODEL: P_MOS
+ TYPE            P
+ LEVEL 60 : GC_DROP BSIM4.0.0 
+ LIBRARY : /users/students/r0685932/DAIC/models/45nm.lib
+ CORNER  : tt
+
+  names    values    units     names    values    units     names    values    units   
+  -----    ------    -----     -----    ------    -----     -----    ------    -----   
+
+/************  Model_parameters  ************/
+VERSION = 4.0000E+00 -       WARNMOD = 1          -       TNOM    = 2.7000E+01 degC   
+CDSC    = 0.0        F/m2    CDSCB   = 0.0        F/Vm^2  CDSCD   = 0.0        F/Vm^2 
+CIT     = 0.0        F/m^2   NFACTOR = 2.1000E+00 -       XJ      = 1.4000E-08 m      
+VSAT    = 1.5000E+05 m/s     AT      = 3.3000E+04 m/s     A0      = 1.0000E+00 -      
+AGS     = 1.0000E-20 1/V     A1      = 0.0        1/V     A2      = 1.0000E+00 -      
+KETA    =-4.7000E-02 1/V     NSUB    = 6.0000E+16 cm-3    NDEP    = 2.4400E+18 cm-3   
+NSD     = 2.0000E+20 cm-3    PHIN    = 0.0        V       NGATE   = 1.0000E+23 cm-3   
+GAMMA1  = 0.0        V^1/2   GAMMA2  = 0.0        V^1/2   VBX     = 0.0        V      
+VBM     =-3.0000E+00 V       XT      = 1.5500E-07 m       K1      = 4.0000E-01 V^1/2  
+KT1     =-1.1000E-01 V       KT1L    = 0.0        Vm      KT2     = 2.2000E-02 -      
+K2      =-1.0000E-02 -       K3      = 0.0        -       K3B     = 0.0        1/V    
+W0      = 2.5000E-06 m       DVTP0   = 1.0000E-11 m       DVTP1   = 5.0000E-02 1/V    
+LPE0    = 0.0        m       LPEB    = 0.0        m       DVT0    = 1.0000E+00 -      
+DVT1    = 2.0000E+00 -       DVT2    =-3.2000E-02 1/V     DVT0W   = 0.0        1/m    
+DVT1W   = 0.0        1/m     DVT2W   = 0.0        1/V     DROUT   = 5.6000E-01 -      
+DSUB    = 1.0000E-01 -       VTH0    =-4.9158E-01 V       UA      = 2.0000E-09 m/V    
+UA1     = 4.3100E-09 m/V     UB      = 5.0000E-19 (m/V)^2 UB1     = 7.6100E-18 (m/V)^2
+UC      = 0.0        m/V^2   UC1     =-5.6000E-11 m/V^2   U0      = 2.0000E-02 unit1  
+EU      = 1.0000E+00 -       UTE     =-1.5000E+00 -       VOFF    =-1.2600E-01 V      
+MINV    = 5.0000E-02 -       RDSW    = 1.5500E+02 unit2   RSW     = 7.5000E+01 unit2  
+RDW     = 7.5000E+01 unit2   PRWG    = 0.0        1/V     PRWB    = 0.0        V^-0.5 
+PRT     = 0.0        ohm(m)  ETA0    = 5.5000E-03 -       ETAB    = 0.0        1/V    
+PCLM    = 1.2000E-01 -       PDIBL1  = 1.0000E-03 -       PDIBL2  = 1.0000E-03 -      
+PDIBLB  = 3.4000E-08 1/V     FPROUT  = 2.0000E-01 V/m^0.5 PDITS   = 8.0000E-02 1/V    
+PDITSD  = 2.3000E-01 1/V     PSCBE1  = 8.1400E+08 V/m     PSCBE2  = 9.5800E-07 m/V    
+PVAG    = 1.0000E-20 -       DELTA   = 1.0000E-02 V       WR      = 1.0000E+00 -      
+DWG     = 0.0        m/V     DWB     = 0.0        m/V^0.5 B0      = 0.0        m      
+B1      = 0.0        m       ALPHA0  = 7.4000E-02 Am/V    ALPHA1  = 5.0000E-03 A/V    
+BETA0   = 3.0000E+01 V       VFB     = 5.5000E-01 V       AGIDL   = 2.0000E-04 mho    
+BGIDL   = 2.1000E+09 V/m     CGIDL   = 2.0000E-04 V^3     EGIDL   = 8.0000E-01 V      
+AIGC    = 1.0687E-02 unit3   BIGC    = 1.2607E-03 unit4   CIGC    = 8.0000E-04 1/V    
+AIGSD   = 1.0687E-02 unit3   BIGSD   = 1.2607E-03 unit4   CIGSD   = 8.0000E-04 -      
+AIGBACC = 1.2000E-02 unit3   BIGBACC = 2.8000E-03 unit4   CIGBACC = 2.0000E-03 1/V    
+AIGBINV = 1.4000E-02 unit3   BIGBINV = 4.0000E-03 unit4   CIGBINV = 4.0000E-03 1/V    
+NIGC    = 1.0000E+00 -       NIGBINV = 3.0000E+00 -       NIGBACC = 1.0000E+00 -      
+NTOX    = 1.0000E+00 -       EIGBINV = 1.1000E+00 V       PIGCD   = 1.0000E+00 -      
+POXEDGE = 1.0000E+00 -       XRCRG1  = 1.2000E+01 -       XRCRG2  = 5.0000E+00 -      
+CGSL    = 2.6530E-10 F/m     CGDL    = 2.6530E-10 F/m     CKAPPAS = 3.0000E-02 V      
+CKAPPAD = 3.0000E-02 V       CF      = 1.2602E-10 F/m     CLC     = 1.0000E-07 m      
+CLE     = 6.0000E-01 -       VFBCV   =-1.0000E+00 V       NOFF    = 9.0000E-01 -      
+VOFFCV  = 2.0000E-02 V       ACDE    = 1.0000E+00 m/V     MOIN    = 1.5000E+01 -      
+FNMOD   = 0          -       IGCMOD  = 1          -       IGBMOD  = 1          -      
+ACNQSMOD= 0          -       FNOIMOD = 1          -       RDSMOD  = 0          -      
+DIOMOD  = 1          -       PERMOD  = 1          -       GEOMOD  = 1          -      
+RGEOMOD = 0          -       RGATEMOD= 1          -       RBODYMOD= 1          -      
+CAPMOD  = 2          -       TRNQSMOD= 0          -       MOBMOD  = 0          -      
+TNOIMOD = 0          -       TOXE    = 1.3000E-09 m       BINUNIT = 1          -      
+PARAMCHK= 1          -       IJTHDFWD= 1.0000E-02 A       TOXM    = 1.3000E-09 m      
+TCJ     = 1.0000E-03 1/K     TCJSW   = 1.0000E-03 1/K     TCJSWG  = 1.0000E-03 1/K    
+TPB     = 5.0000E-03 V/K     TPBSW   = 5.0000E-03 V/K     TPBSWG  = 5.0000E-03 V/K    
+GBMIN   = 1.0000E-10 mho     RBDB    = 1.5000E+01 ohm     RBSB    = 1.5000E+01 ohm    
+RBPB    = 5.0000E+00 ohm     RBPS    = 1.5000E+01 ohm     RBPD    = 1.5000E+01 ohm    
+DMCG    = 0.0        m       DMCI    = 0.0        m       DMDG    = 0.0        m      
+XGW     = 0.0        m       XGL     = 0.0        m       RSHG    = 4.0000E-01 ohm/sq 
+NGCON   = 1.0000E+00 -       IJTHSFWD= 1.0000E-02 A       XJBVD   = 1.0000E+00 -      
+XJBVS   = 1.0000E+00 -       BVD     = 1.0000E+01 V       BVS     = 1.0000E+01 V      
+TOXP    = 1.0000E-09 m       DTOX    = 3.0000E-10 m       IJTHSREV= 1.0000E-03 A      
+IJTHDREV= 1.0000E-03 A       VOFFL   = 0.0        m       PDITSL  = 2.3000E+06 1/m    
+TNOIA   = 1.5000E+00 -       TNOIB   = 3.5000E+00 -       NTNOI   = 1.0000E+00 -      
+RDSWMIN = 0.0        unit2   RDWMIN  = 0.0        unit2   RSWMIN  = 0.0        unit2  
+DMCGT   = 0.0        m       TOXREF  = 1.3000E-09 m       EPSROX  = 3.9000E+00 -      
+JSWGS   = 1.0000E-10 A/m     JSWGD   = 1.0000E-10 A/m     CGSO    = 1.1000E-10 F/m    
+CGDO    = 1.1000E-10 F/m     CGBO    = 2.5600E-11 F/m     XPART   = 0.0        -      
+RSH     = 5.0000E+00 ohm/sq  JSS     = 1.0000E-04 A/m^2   PBS     = 1.0000E+00 V      
+MJS     = 5.0000E-01 -       PBSWS   = 1.0000E+00 V       MJSWS   = 3.3000E-01 -      
+CJS     = 5.0000E-04 F/m^2   CJSWS   = 5.0000E-10 F/m     NOIA    = 6.1880E+40 unit5  
+NOIB    = 1.5000E+25 1/V     NOIC    = 8.7500E+09 1/V.m^2 LINT    = 3.7500E-09 m      
+LL      = 0.0        m^LLN   LLN     = 1.0000E+00 -       LW      = 0.0        m^LWN  
+LWN     = 1.0000E+00 -       LWL     = 0.0        unit6   WINT    = 5.0000E-09 m      
+WL      = 0.0        m^WLN   WLN     = 1.0000E+00 -       WW      = 0.0        m^WWN  
+WWN     = 1.0000E+00 -       WWL     = 0.0        unit7   DWC     = 5.0000E-09 m      
+DLC     = 3.7500E-09 m       EM      = 4.1000E+07 V/m     EF      = 1.0000E+00 -      
+AF      = 1.0000E+00 -       KF      = 0.0        -       NJS     = 1.0000E+00 -      
+XTIS    = 3.0000E+00 -       PBSWGS  = 1.0000E+00 V       MJSWGS  = 3.3000E-01 -      
+CJSWGS  = 3.0000E-10 F/m     JSWS    = 1.0000E-11 A/m     LLC     = 0.0        m^LLN  
+LWC     = 0.0        m^LWN   LWLC    = 0.0        unit6   WLC     = 0.0        m^WLN  
+WWC     = 0.0        m^WWN   WWLC    = 0.0        unit7   DWJ     = 0.0        m      
+JSD     = 1.0000E-04 A/m^2   PBD     = 1.0000E+00 V       MJD     = 5.0000E-01 -      
+PBSWD   = 1.0000E+00 V       MJSWD   = 3.3000E-01 -       CJD     = 5.0000E-04 F/m^2  
+CJSWD   = 5.0000E-10 F/m     NJD     = 1.0000E+00 -       XTID    = 3.0000E+00 -      
+PBSWGD  = 1.0000E+00 V       MJSWGD  = 3.3000E-01 -       CJSWGD  = 5.0000E-10 F/m    
+JSWD    = 1.0000E-11 A/m     DLCIG   = 3.7500E-09 m       OPTACM  = 0          -      
+GCDROP  = 0          -       NQS_MODFLAG= 1          -       LMLT    = 1.0000E+00 -      
+WMLT    = 1.0000E+00 -       DELVT0  = 0.0        -       
+
+unit1 represents m^2/(Vs)
+unit2 represents ohm(um)^WR
+unit3 represents (1/m)[(Fs^2)/g]^0.5
+unit4 represents [1/(mV)][(Fs^2)/g]^0.5
+unit5 represents 1/V.m^-2
+unit6 represents m^(LWN+LLN)
+unit7 represents m^(WWN+WLN)
+
+
+Searching Operating Point between 0.000000E+00V and 
+                                  1.100000E+00V
+
+
+
+1***************30-Mar-2018 ***********************  ELDO 13.1 patch1 (64 bits)  (v7.9_1.1)  ***********************18:32:19*****************
+
+0* Design of PMOS load current sources
+0****                 OPTION SUMMARY                                        TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+
+
+
+*** DC Control Options : 
+
+GMIN           = 1.00e-12 NMAXSIZE       = 100000   ITL1           = 100      
+GRAMP          = 0        NETSIZE        = 100      VMINDC         = UNDEF    
+VMAXDC         = UNDEF    
+
+*** Initial Accuracy Control Options (May be adjusted during simulation): 
+
+ITOL           = 1.00e-06 EPS            = 5.00e-03 VNTOL          = 1.00e-06 
+RELTOL         = 1.00e-03 RELERR         = 5.00e-02 PIVREL         = 1.00e-03 
+PIVTOL         = 1.00e-16 ABSTOL         = 1.00e-12 FLXTOL         = 1.00e-11 
+MAXORD         = 2.00e+00 
+
+*** Time-step Control Options : 
+
+ZOOMTIME       = 1.00e+00 STEP           = 0.00e+00 STARTSMP       = 0.00e+00 
+FREQSMP        = 0.00e+00 COURESOL       = 0.00e+00 TRTOL          = 7.00e+00 
+HMIN           = 1.00e-12 ITL3           = 3        ITL4           = 13       
+FT             = 1.25e-01 DCLOG          = 1.00e+00 LVLTIM         = 2        
+LVLCNV         = 2        DVDT           = -1       RELVAR         = 1.50e-01 
+ABSVAR         = 2.00e-01 SAMPLE         = 0.00e+00 HMAX           = UNDEF    
+
+
+*** MosFet default Options : 
+
+SCALE          = 1.00e+00 SCALM          = 1.00e+00 SCALEBSIM      = 1.00e+00 
+DEFAD          = UNDEF    DEFAS          = UNDEF    DEFPD          = UNDEF    
+DEFPS          = UNDEF    DEFW           = 1.00e-04 DEFL           = 1.00e-04 
+DEFNRD         = UNDEF    DEFNRS         = UNDEF    XA             = 6.00e-06 
+LIMRMOS        = UNDEF    SHRINK         = 1.00e+00 
+
+*** General Information Options : 
+
+CPTIME         = UNDEF    STAT           = 0        TIMEDIV        = 0        
+SIMUDIV        = 10       SAVETIME       = 0        MAXTRAN        = 1000     
+MAXNODES       = 10000    MAXV           = 1.00e+13 LIMPROBE       = 10000    
+FLICKER_NOISE  = 0        THERMAL_NOISE  = 0        TNOM           = 2.70e+01 
+TMAX           = UNDEF    
+SPICDC         = 0        SPIOUT         = 0        NEWTON         = 1        
+OSR            = 0        TRAP           = 1        GEAR           = 0        
+BE             = 0        PROBEOP        = 0        NOLAT          = 0        
+NWLAT          = 0        ANALOG         = 0        BBDEBUG        = 0        
+NOSIZECHK      = 0        QTRUNC         = 0        UNBOUND        = 0        
+LCAPOP         = 0        NOAEX          = 0        AEX            = 0        
+AEX            = 0        STVER          = 0        MOTOROLA       = 0        
+AMS            = 0        ASPEC          = 0        INPUT          = 0        
+NOINIT         = 0        PSF            = 0        NOBIN          = 0        
+NOCOU          = 1        WL             = 0        NODE           = 0        
+LIST           = 0        SPI3BIN        = 0        SPI3ASC        = 0        
+NOMOD          = 0        NOBIN          = 0        NOCOU          = 1        
+RMOS           = 0        NWRMOS         = 1        NONWRMOS       = 0        
+USEDEFAP       = 0        NOASCII        = 0        ASCII          = 1        
+MIXED          = 0        SWITCH         = 0        USERSWITCH     = 0        
+TIMING         = 0        MODWL          = 1        ULOGIC         = 0        
+
+
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:6 iterations FOR DC analysis
+
+
+
+
+1***************30-Mar-2018 ***********************  ELDO 13.1 patch1 (64 bits)  (v7.9_1.1)  ***********************18:32:19*****************
+
+0* Design of PMOS load current sources
+0****                 DC OPERATING POINT                                   TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE    
+ GND       0.0       
+ OUT       9.0000E-01
+ PBIAS       4.9972E-01
+ VDD       1.1000E+00
+
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+VDD       -4.4096E-03   1.1000E+00  -4.8505E-03  
+VGND       5.7732E-18   0.0          0.0         
+I_BIAS     2.3000E-03   4.9972E-01   1.1494E-03  
+VDS        2.1096E-03   9.0000E-01   1.8986E-03  
+
+   TOTAL POWER DISSIPATION:  1.8025E-03 WATTS
+
+
+
+
+
+1***************30-Mar-2018 ***********************  ELDO 13.1 patch1 (64 bits)  (v7.9_1.1)  ***********************18:32:19*****************
+
+0* Design of PMOS load current sources
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               MOS 1        MOS 2        
+
+MODEL          P_MOS        P_MOS        
+MFACTOR         1.0000E+00   1.0000E+00  
+ID             -2.2999E-03  -2.1096E-03  
+VGS            -6.0028E-01  -6.0028E-01  
+VDS            -6.0028E-01  -2.0000E-01  
+VBS             0.0          0.0         
+VTH            -4.8774E-01  -4.9031E-01  
+VDSAT          -1.4000E-01  -1.3815E-01  
+GM              2.9476E-02   2.6939E-02  
+GDS             3.6398E-04   1.0775E-03  
+RON             2.7474E+03   9.2803E+02  
+GMB             6.1499E-03   5.6307E-03  
+Cdd             1.1566E-13   1.3374E-13  
+Cdg            -1.2001E-13  -1.3198E-13  
+Cds             7.6754E-14   7.6728E-14  
+Cdb            -7.2405E-14  -7.8488E-14  
+Cgd            -5.5548E-14  -6.7276E-14  
+Cgg             3.3499E-13   3.4529E-13  
+Cgs            -2.5610E-13  -2.5453E-13  
+Cgb            -2.3344E-14  -2.3483E-14  
+Csd            -5.9809E-16  -3.2147E-16  
+Csg            -1.6380E-13  -1.6333E-13  
+Css             2.9491E-13   2.9406E-13  
+Csb            -1.3050E-13  -1.3041E-13  
+Cbd            -5.9516E-14  -6.6143E-14  
+Cbg            -5.1177E-14  -4.9989E-14  
+Cbs            -1.1556E-13  -1.1625E-13  
+Cbb             2.2625E-13   2.3238E-13  
+PHI             8.8990E-01   8.8990E-01  
+VBI             1.0938E+00   1.0938E+00  
+Region         saturation   saturation   
+VTH_D           1.1253E-01   1.0997E-01  
+Drain_Voltage   4.9972E-01   9.0000E-01  
+Gate_Voltage    4.9972E-01   4.9972E-01  
+Source_Voltage  1.1000E+00   1.1000E+00  
+Bulk_Voltage    1.1000E+00   1.1000E+00  
+Isub           -1.6378E-12  -2.5173E-13  
+Igidl           0.0          0.0         
+Igisl           0.0          0.0         
+Ibd             6.1028E-13   2.1000E-13  
+Gbd             1.0000E-12   1.0002E-12  
+Ibs            -3.4958E-23  -2.9250E-23  
+Gbs             1.5912E-12   1.5912E-12  
+Idedtot         0.0          0.0         
+Gdtot           0.0          0.0         
+Isestot         0.0          0.0         
+Gstot           0.0          0.0         
+Grgeltd         4.8561E-03   4.8561E-03  
+Qgate          -1.3152E-13  -1.3117E-13  
+Qdrn            5.5133E-15   5.4402E-15  
+Qsrc            8.2550E-15   8.0374E-15  
+Qbulk           1.1775E-13   1.1769E-13  
+Qjbd            3.8410E-14   1.3478E-14  
+Cjbd            5.9511E-14   6.5442E-14  
+Qjbs           -2.4430E-24  -2.0442E-24  
+Cjbs            1.1120E-13   1.1120E-13  
+Cgdo            5.6518E-14   6.7745E-14  
+Cgso            6.8752E-14   6.8752E-14  
+Cgbo            2.1120E-18   2.1120E-18  
+Ueff            6.6056E-03   6.5922E-03  
+Igs            -5.8878E-09  -5.8877E-09  
+Igcs           -1.4687E-08  -1.6583E-08  
+Igd             1.4216E-14  -1.4644E-09  
+Igcd           -1.2032E-08  -1.5520E-08  
+Igb            -9.7742E-12  -9.4475E-12  
+
+MOS 1: X_PDIODE.M1
+MOS 2: X_PMOSLOADPAIR.M1
+
+
+
+
+
+1***************30-Mar-2018 ***********************  ELDO 13.1 patch1 (64 bits)  (v7.9_1.1)  ***********************18:32:19*****************
+
+0* Design of PMOS load current sources
+0****                 ACCOUNTING INFORMATION                                TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+
+
+
+Number of nodes                     12
+Number of intrinsic nodes           8
+Number of input signals             3
+Number of resistors                 0
+Number of floating capacitors       0
+Number of grounded capacitors       0
+Number of inductors                 0
+Number of voltage sources           3
+Number of current sources           1
+Number of dependent sources         0
+Number of diodes                    0
+Number of BJT                       0
+Number of JFET                      0
+Number of MOS                       2
+Number of SWITCHES                  0
+Number of transmission lines        0
+Total number of elements simulated  6
+Number of equations                 9
+Number of non-zero terms            29
+Percent Zeros                       64.2
+Number of DC points                 71
+Number of Newton iterations         76
+Average number of Newton iterations 1.070e+00
+Evaluation of active devices        1152
+Memory size (MB)                    254.6
+
+***>CPU TIME 0s 010ms <***
+
+***>MESSAGE SUMMARY: 4 warnings
+
+***>GLOBAL CPU TIME 0s 010ms <***
+
+
+***>GLOBAL ELAPSED TIME 0s <***
+
+
+  Job started at 30-Mar-2018 18:32:19
+  Job end at     30-Mar-2018 18:32:19
+
+  Run on stud-c7-19.esat.kuleuven.be (Linux 3.10.0-693.21.1.el7.x86_64)
+

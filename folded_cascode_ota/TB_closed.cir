@@ -1,0 +1,136 @@
+*A test structure for the OTA 
+
+**************
+* Model file *
+**************
+.lib "../../models/45nm.lib" tt
+.MODEL SMOD modfas RON = 0.1, ROFF = 100G, VON=0.95, VOFF=0.05
+
+*Verilog*
+
+.model siggen macro lang=veriloga 
+.model binaryencoder macro lang=veriloga 
+.model idealcomp macro lang=veriloga 
+.model clockedintegrator macro lang=veriloga 
+
+*****************
+* Include files *
+*****************
+.include './simple_nmos.cir'
+.include './biascircuit_nmos.cir'
+.include './cmfb.cir'
+.include './parameters.cir'
+
+.verilog ../VerilogBlocks/siggen.va
+.verilog ../VerilogBlocks/binaryencoder.va
+.verilog ../VerilogBlocks/idealcomp.va
+.verilog ../VerilogBlocks/clockedintegrator.va
+
+***********
+* Options *
+***********
+.option method=gear
+.option reltol=1e-5 abstol=1e-9
+
+***********
+* Circuit *
+***********
+Xota ninp ninn noutp noutn nbias1 ncmfb ndd 0 simple_nmos W0=WCS L0=LCS W1=Wn L1=Ln W2=Wp L2=Lp
+Xbias nbias1 0 bias_nmos Wb=WCS Lb=LCS
+Xcmfb noutp noutn ncmfb 0 cmfb Vref=Vdcout
+
+Ysig siggen nsn nsp 0 DC=Vdcin f=fsig_test
+Ybin binaryencoder comp1 comp2 nCLK p2 b0 b1 b2
+Ycomp1 idealcomp nint nlow comp1
+Ycomp2 idealcomp nhigh nint comp2
+Yint clockedintegrator nl nint nCLK 0 clock_frequency=f_fbloop
+
+Vhighc nhigh 0 Vhigh
+Vlowc nlow 0 Vlow
+
+Esig nsig 0 VCVS nsp nsn 1
+Ein nin 0 VCVS ninp ninn 1
+Eout nout 0 VCVS noutp noutn 1
+El nl 0 VCVS nlp nln 1
+
+C0a nc0a ninn Cs
+C0b nc0b ninp Cs
+
+C1a nc1a ninn Cx1
+C1b nc1b ninp Cx1
+
+C2a nc2a ninn Cx2
+C2b nc2b ninp Cx2
+
+C3a nc3a ninn Cx3
+C3b nc3b ninp Cx3
+
+Cla nlp 0 Cl
+Clb nln 0 Cl
+
+Y0a VSWITCH nsn nc0a p1 0 MODEL:SMOD
+Y0b VSWITCH nsp nc0b p1 0 MODEL:SMOD
+
+Y1a VSWITCH nc0a nCM p2 0 MODEL:SMOD
+Y1b VSWITCH nc0b nCM p2 0 MODEL:SMOD
+
+Y2a VSWITCH ninn noutp p1 0 MODEL:SMOD
+Y2b VSWITCH ninp noutn p1 0 MODEL:SMOD
+
+Y3a VSWITCH nc3a noutp b0 0 MODEL:SMOD
+Y3b VSWITCH nc3b noutn b0 0 MODEL:SMOD
+
+Y4a VSWITCH nc3a nCM p1 0 MODEL:SMOD
+Y4b VSWITCH nc3b nCM p1 0 MODEL:SMOD
+
+Y5a VSWITCH nc2a noutp b1 0 MODEL:SMOD
+Y5b VSWITCH nc2b noutn b1 0 MODEL:SMOD
+
+Y6a VSWITCH nc2a nCM p1 0 MODEL:SMOD
+Y6b VSWITCH nc2b nCM p1 0 MODEL:SMOD
+
+Y7a VSWITCH nc1a noutp b2 0 MODEL:SMOD
+Y7b VSWITCH nc1b noutn b2 0 MODEL:SMOD
+
+Y8a VSWITCH nc1a nCM p1 0 MODEL:SMOD
+Y8b VSWITCH nc1b nCM p1 0 MODEL:SMOD
+
+Y9a VSWITCH noutp nlp p2 0 MODEL:SMOD
+Y9b VSWITCH noutn nln p2 0 MODEL:SMOD
+
+
+***********
+* Sources *
+***********
+* DC sources
+Vdd ndd 0 1
+VCM nCM 0 Vdcout
+Iin 0 nbias1 Iin
+
+Vclk_p1 p1 0 PULSE(1 0 {Tclk/2} {Tclk/10} {Tclk/10} {Tclk/2} Tclk)
+Vclk_p2 p2 0 PULSE(0 1 {Tclk/2} {Tclk/10} {Tclk/10} {Tclk/2} Tclk)
+
+ 
+***************
+* Simulations *
+***************
+* Operating point
+.op
+
+
+* Transient analysis
+.tran {Tclk/15} {90/fsig_test}
+
+.IC V(ninp)=Vdcin
+.IC V(ninn)=Vdcin
+.IC V(noutp)=Vdcout
+.IC V(noutn)=Vdcout
+.IC V(nlp)=Vdcout
+.IC V(nln)=Vdcout
+
+**********
+* Output *
+**********
+.probe I V 
+
+.end

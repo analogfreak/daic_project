@@ -1,0 +1,15 @@
+Inp pair sizing:
+over-drive: (530-463) mV ~ 70mV
+vdsat: 9.7744E-02
+CURRENT_REQUIRED   =  2.5873E-03   
+WIDTH_REQUIRED     =  4.3014E-05   
+DRAIN_CAPACITANCE  =  4.0893E-14 
+
+** tail current source sizing
+over-drive required ~ 150mV [VDSAT]
+w=135u
+l=180n
+drain capacitance:0.13pF
+
+** design of current source [pmos load pair]
+int_1

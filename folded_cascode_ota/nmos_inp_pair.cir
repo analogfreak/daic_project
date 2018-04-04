@@ -1,0 +1,28 @@
+* Netlist for sizing of nMOS input pair
+**************
+* Model file *
+.lib "../../models/45nm.lib" tt
+**************
+.param W_MOS=1u
+
+* ----- Circuit
+* Because this script will be used to design for the transistor of the input pair,
+* they can be of the minimum length
+X_nmos2 vds_200m vgs vss vss nmos w=W_MOS l=45n
+vgs vgs vss 530m
+vds2 vds_200m vss 200m
+vgnd vss 0 0
+* ------ Ends
+
+.op
+.dc sweep W_MOS 1u 100u 1u
+.defwave gm_nmos2 = gm(X_nmos2.M1)
+.defwave w_width= W_MOS
+.meas dc current_required find id(X_nmos2.M1) when gm(X_nmos2.M1)=34.22m
+.meas dc width_required find w(w_width) when gm(X_nmos2.M1)=34.22m
+.meas drain_capacitance find cdd(X_nmos2.M1) when gm(X_nmos2.M1)=34.22m
+.probe V I
+.plot dc gm(X_nmos2.M1)
+.plot dc w(w_width)
+.option captab
+.end

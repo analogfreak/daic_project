@@ -1,0 +1,21 @@
+* Design of PMOS load current sources
+* W=135u L=90nm
+* Over drive required= 139m
+**************
+* Model file *
+.lib "../../models/45nm.lib" tt
+**************
+.param width=500u
+
+Vdd vdd gnd 1.1
+vgnd gnd 0 0
+I_bias pbias gnd 2.3m
+X_pdiode pbias pbias vdd vdd pmos w=139u L=90n
+X_pmosLoadPair out pbias vdd vdd pmos w=139u L=90n
+vds out gnd 900m
+.op
+.dc sweep width 80u 150u 1u
+.probe I V
+.defwave VGS_VTH_laod=VDSAT(X_pmosLoadPair.M1)
+.plot dc w(VGS_VTH_laod)
+.end

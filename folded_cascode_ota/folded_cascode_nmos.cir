@@ -1,0 +1,42 @@
+*Simple n-input OTA
+
+* The tail current source has been designed using the file
+* design_tail_current.cir
+.param Wtail_currrent = 135u
+.param Ltail_current =  180n
+
+.param WM6 = 
+.param LM6 = 
+
+.param W5 =
+.param L5 =
+
+
+.param L4 =
+
+.param W3 = 
+.param L3 = 
+
+.subckt folded_cascode_nmos ndd nss inp_p inp_n pout nout b5 b4 b3 b2 nbias1
+
+X_M6a out_p b5 ndd ndd pmos w=WM6 L=LM6
+X_M6b out_n b5 ndd ndd pmos w=WM6 L=LM6
+
+X_M5a pout b4 out_p ndd pmos w=W5 L=L5
+X_M5b nout b4 out_n ndd pmos w=W5 L=L5
+
+X_M4a pout b3 m4a_source nss nmos w=W4 L=L4
+X_M4b nout b3 m4b_source nss nmos w=W4 L=L4
+
+X_M3a m4a_source b2 nss nss nmos w=W3 L=L3
+X_M3b m4b_source b2 nss nss nmos w=W3 L=L3
+
+X_inpPair_p out_p inp_n tail_node nss nmos w=Winp_pair l=Linp_pair
+X_inpPair_n out_n inp_p tail_node nss nmos w=Winp_pair l=Linp_pair
+
+
+X_tailCurrentSource tail_node nbias1 nss nss nmos w=Wtail_current l=Ltail_current
+
+X_diodeCurrentSource nbias1 nbias1 nss nss w=Wtail_current l=Ltail_current
+
+.ends folded_cascode_nmos

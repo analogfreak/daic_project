@@ -1,0 +1,10 @@
+START report: Thu Mar 31 17:05:25 2016 
+** Warning: (eldo-65)  In file "./cmfb.cir" line 24:
++   Probably missing surrounding ' or {} at or near VREF-VEST
++   Eldo will consider that as an expression, which is may be not what is expected.
+** Warning: (eldo-706)  In file "./cmfb.cir" line 8:
++   During the creation of XCMFB, the parameter VREF in subckt CMFB is ignored as it is already specified on the instance line.
+** Warning: (eldo-526)  MODEL "N_MOS":  Parameter XL used for version >= 4.2. Parameter ignored! 
+** Warning: (eldo-526)  MODEL "N_MOS":   ACDE = 1 given in the model card results in effective acde = 0.318645 which is too small.
+** Warning: (eldo-526)  MODEL "P_MOS":  Parameter XL used for version >= 4.2. Parameter ignored! 
+** Warning: (eldo-526)  MODEL "P_MOS":   ACDE = 1 given in the model card results in effective acde = 0.343893 which is too small.

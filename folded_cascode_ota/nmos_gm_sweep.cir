@@ -1,0 +1,95 @@
+*A test structure for the OTA 
+
+**************
+* Model file *
+**************
+.lib "../../models/45nm.lib" tt
+
+*****************
+* Include files *
+*****************
+
+
+***********
+* Options *
+***********
+
+***********
+* Circuit *
+***********
+
+*****************************************
+*	**** Set W & L ****		*		
+* 					*
+.param Wn = 50u			
+.param Ln = 45n					
+*					*
+*	**** Set DC Voltages ****	*
+*					*
+.param gate=2	
+.param source = 0	
+.param bulk = 0
+.param bias_current=10u
+.param supply=3.3		
+*					*
+*****************************************
+
+XM1 nd nd ns nb nmos w=Wn l=Ln
+
+
+***********
+* Sources *
+***********
+* DC sources
+IBias vdd nd 2.3m
+Vsource ns 0 source
+Vbulk nb 0 bulk 
+Vsupply Vdd 0 supply
+ 
+***************
+* Simulations *
+***************
+* Operating point
+.op
+
+
+********	**** Sweep ****	  ***************
+*						*
+.DC
+.extract GM(XM1.M1)
+.extract 1/gds(XM1.M1)
+*						*
+*************************************************
+
+
+
+**********
+* Output *
+**********
+*** Probe a DC operation ***
+.probe I V
+.probe GM(XM1.M1) ID(XM1.M1)
+.probe GDS(XM1.M1)
+.probe VGS(XM1.M1)
+.probe VT(XM1.M1)
+.probe VDSAT(XM1.M1)
+
+*** Define an expression ***
+.defwave ids=ID(XM1.M1)
+.defwave gm=GM(XM1.M1)
+.defwave gm_over_ids=GM(XM1.M1)/ID(XM1.M1)
+.defwave rds=1/GDS(XM1.M1)
+.defwave vgs_vth=abs(VGS(XM1.M1))-abs(VT(XM1.M1))
+.defwave vdsat=VDSAT(XM1.M1)
+.defwave ft=abs(GM(XM1.M1)/CGS(XM1.M1))
+*** Plot the expression ***
+.plot dc w(ids)
+.plot dc w(gm)
+.plot dc w(gm_over_ids)
+.plot dc w(rds)
+.plot dc w(vgs_vth)
+.plot dc w(vdsat)
+.plot dc w(ft)
+
+
+.end
