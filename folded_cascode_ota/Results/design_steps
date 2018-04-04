@@ -12,4 +12,9 @@ l=180n
 drain capacitance:0.13pF
 
 ** design of current source [pmos load pair]
-int_1
+cascode width = 1.1526E-04
+current source width = 2.8866E-04
+
+
+
+

@@ -1,0 +1,9 @@
+START report: Wed Apr  4 15:29:20 2018 
+** Warning: (eldo - 1479)  Some .PLOT commands are declared for TRAN analysis.
++   They are ignored because this analysis is not enabled.
+** Warning: (eldo - 526)  MODEL "N_MOS":  Parameter XL used for version >= 4.2. Parameter ignored! 
+** Warning: (eldo - 526)  MODEL "N_MOS":   ACDE = 1 given in the model card results in effective acde = 0.280299 which is too small.
+
+** Warning: (eldo - 526)  MODEL "P_MOS":  Parameter XL used for version >= 4.2. Parameter ignored! 
+** Warning: (eldo - 526)  MODEL "P_MOS":   ACDE = 1 given in the model card results in effective acde = 0.300892 which is too small.
+

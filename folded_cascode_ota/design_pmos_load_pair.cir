@@ -1,0 +1,42 @@
+* Netlist for biasing the pMOS input pair
+* 100mV VDSAT planned across the M6a device
+**************
+* Model file *
+.lib "../../models/45nm.lib" tt
+**************
+.param mos_width=115.2u
+.param mos_width_cs=2.8866E-04
+
+R1 vdd X_m5diode_s 38
+X_m5diode b4 b4 X_m5diode_s vdd pmos w=mos_width l=45n
+Ibias b4 vss 5.1746m
+
+X_m6diode int2 b5 vdd vdd pmos w=mos_width_cs l=135n
+x_m5 b5 b4 int2 vdd pmos w=mos_width l=45n
+Ibias2 b5 vss 5.1746m
+
+
+** Sources
+vdd vdd vss 1.1
+vss vss 0 0
+** ends sources
+
+
+.op
+.probe v i
+*.dc sweep mos_width 10u 1m 10u
+*.defwave vgst=(-1*vgs(X_m5diode.M1))+vt(X_m5diode.M1)
+.defwave w_mos=mos_width
+
+.defwave vgst=(-1*vgs(X_m6diode.M1))+vt(X_m6diode.M1)
+*.defwave w_mos=mos_width_cs
+.plot w(vgst)
+.plot VDSAT(X_m6diode.M1)
+
+.defwave op_impedance=(gm(x_m5.M1)*(1/gds(x_m5.M1))*(1/gds(X_m6diode.M1)))
+.plot w(op_impedance)
+.meas dc width_required find w(w_mos) when VDSAT(X_m6diode.M1)=-180m
+.end
+
+
+  

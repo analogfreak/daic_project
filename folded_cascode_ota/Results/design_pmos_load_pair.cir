@@ -1,12 +1,24 @@
 * Netlist for biasing the pMOS input pair
+* 100mV VDSAT planned across the M6a device
 **************
 * Model file *
 .lib "../../models/45nm.lib" tt
 **************
-R1 vdd X_m6diode_s res 19.32516
-X_m6diode X_m6diode_s b4 b4 vdd pmos w=135u l=45n
-Ibias b4 vss 
-X_M5a          
-X_M6a int_1 b5 vdd vdd pmos w=135u l=180n
-X_M6_diode b5 b5 vdd vdd pmos w=135u l=180n
+.param mos_width=135u
+.param r_val=19.32516
+Rcas vdd X_m6diode_s r_val
+X_m6diode X_m6diode_s b4 b4 vdd pmos w=mos_width l=45n
+Ibias b4 vss 0.0051746
 
+** Sources
+vdd vdd vss 1.1
+vss vss 0 0
+** ends sources
+
+
+.op
+.dc sweep W_MOS 1u 100u 1u
+.end
+
+
+  
